@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  mongoDB:
+    image: mongo:3.6.2
+    deploy:
+      replicas: 1
+    volumes:
+      - /data/dc1_db1:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - private_net
+
+networks:
+  private_net:
+
