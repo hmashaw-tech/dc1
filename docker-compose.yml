@@ -12,6 +12,26 @@ services:
     networks:
       - private_net
 
+  Jenkins:
+    image: jenkins-docker
+    deploy:
+      replicas: 1
+    volumes:
+      - /var/jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      - private_net
+
+  BusyBox:
+    image: busybox
+    command: "top"
+    deploy:
+      replicas: 1
+    networks:
+      - private_net
+
 networks:
   private_net:
 
