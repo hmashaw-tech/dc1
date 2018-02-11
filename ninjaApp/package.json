@@ -1,0 +1,16 @@
+{
+  "name": "ninjaapp",
+  "version": "1.0.0",
+  "description": "ninjaApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mark",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mocha": "^5.0.0",
+    "mongoose": "^5.0.4"
+  }
+}
