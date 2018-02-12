@@ -17,7 +17,7 @@ ADD . /app
 RUN npm install
 
 # Use port
-EXPOSE 3000
+EXPOSE 9001
 
 # Launch 'npm start' on running container
 CMD npm start
