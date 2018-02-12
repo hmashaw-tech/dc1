@@ -15,15 +15,15 @@ Done is optional, but once you add it, you have to call it
 before((done) => {
     mongoose.connect('mongodb://mongodb-server/ninjas_test')
     mongoose.connection
-        .once('open', () => { done() })
+        .once('open', () => done())
         .on('error', (error) => {
             console.warn('Warning', error)
         })
 })
 
 beforeEach((done) => {
-    mongoose.connection.collections.ninjas.drop(() => {
-        done()
-    })
+    mongoose.connection.collections.ninjas.drop()
+        .then(() => done())
+        .catch(() => done())
 })
 
