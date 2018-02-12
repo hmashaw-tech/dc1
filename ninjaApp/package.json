@@ -4,6 +4,7 @@
   "description": "ninjaApp",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "NODE_ENV=test nodemon --exec 'mocha --recursive -R min'"
   },
   "author": "Mark",
