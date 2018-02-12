@@ -1,0 +1,23 @@
+node {
+
+  // Job
+  try {
+    stage('Build') {
+      println('Build Success...')
+    }
+    stage('Test') {
+      println('Test Failure!')
+      sh 'exit 1'
+    }
+  } catch(e) {
+    // Mark build as failed
+    currentBuild.result = "FAILURE"
+
+    // Send slack notification
+    slackSend (color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+
+    // Throw the error
+    throw e
+  }
+}
+
