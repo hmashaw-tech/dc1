@@ -9,5 +9,5 @@ demoApp and ninjaApp inspired by/cloned from [the-complete-developers-guide-to-m
 
 Jenkins inspired by/cloned from [learn-devops-ci-cd-with-jenkins-using-pipelines-and-docker](https://www.udemy.com/learn-devops-ci-cd-with-jenkins-using-pipelines-and-docker/).  Thanks to [Edward Viaene](https://github.com/wardviaene).
 
-Terraform and Packer inspired by/cloned from [cloud-provisioning](https://github.com/vfarcic/cloud-provisioning).  Thanks to [Viktor Farcic] (https://github.com/vfarcic).
+Terraform and Packer inspired by/cloned from [cloud-provisioning](https://github.com/vfarcic/cloud-provisioning).  Thanks to [Viktor Farcic](https://github.com/vfarcic).
 
