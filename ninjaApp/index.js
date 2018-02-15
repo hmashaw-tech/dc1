@@ -4,7 +4,7 @@
 
 const app = require('./app')
 
-app.listen(9001, () => {
-    console.log('App running on Port 9001')
+app.listen(8000, () => {
+    console.log('App running on Port 8000')
 })
 
