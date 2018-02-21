@@ -13,6 +13,7 @@ resource "aws_instance" "swarm-manager" {
         private_key = "${file("./keys/TF-Demo-Dev.key")}"
     }
 
+    # Run on remote reource after it is created
     provisioner "remote-exec" {
         inline = [
         "if ${var.swarm_init}; then docker swarm init --advertise-addr ${self.private_ip}; fi",
@@ -37,7 +38,6 @@ resource "aws_instance" "swarm-worker" {
 
     key_name = "TF-Demo-Dev-Key"
 
-    # How to connect for provisioning
     connection {
         user = "ubuntu"
         private_key = "${file("./keys/TF-Demo-Dev.key")}"
