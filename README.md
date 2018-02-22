@@ -11,3 +11,4 @@ Jenkins inspired by/cloned from [learn-devops-ci-cd-with-jenkins-using-pipelines
 
 Terraform and Packer inspired by/cloned from [cloud-provisioning](https://github.com/vfarcic/cloud-provisioning).  Thanks to [Viktor Farcic](https://github.com/vfarcic).
 
+Ansible Inventory inspired by/cloned from [Multi-Cloud Docker Swarm with Terraform and Ansible](https://solinea.com/blog/multi-cloud-docker-swarm-terraform-ansible).  Thanks to [Spencer Smith @solineainc](https://twitter.com/solineainc).
