@@ -25,13 +25,24 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - dc1_demo
+      dc1_demo:
+        aliases:
+          - mongodb-server
 
   BusyBox:
     image: busybox
     command: "top"
     deploy:
       replicas: 1
+    networks:
+      - dc1_demo
+
+  NinjaApp:
+    image: markshaw/ninjaapp:1.0
+    deploy:
+      replicas: 1
+    ports:
+      - "8000:8000"
     networks:
       - dc1_demo
 

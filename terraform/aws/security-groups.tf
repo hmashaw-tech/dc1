@@ -25,6 +25,13 @@ resource "aws_security_group" "dc1-docker" {
     }
 
     ingress {
+        from_port = 8000
+        to_port   = 8000
+        protocol  = "tcp"
+        cidr_blocks = ["${var.swarm_ingressIP}"]
+    }
+
+    ingress {
         from_port = 8080
         to_port   = 8080
         protocol  = "tcp"
