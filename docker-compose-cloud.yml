@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  Visualizer:
+    image: dockersamples/visualizer:stable
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - dc1_demo
+
+  mongoDB:
+    image: mongo:3.6.2
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.role == manager]
+    volumes:
+      - /data/dc1_db1:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - dc1_demo
+
+  BusyBox:
+    image: busybox
+    command: "top"
+    deploy:
+      replicas: 1
+    networks:
+      - dc1_demo
+
+
+networks:
+  dc1_demo:
+
