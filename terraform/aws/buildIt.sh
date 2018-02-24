@@ -31,8 +31,11 @@ if [[ $yn == 'yes' ]]; then
 
     echo "Running Terraform plan ..."
     terraform plan
+
+    echo "To continue and add swarm workers, run terraform apply."
+    terraform plan
 else
-    echo "Okay, stopping build ..."
+    echo "Okay, stopping build."
 fi
 
 echo ""
