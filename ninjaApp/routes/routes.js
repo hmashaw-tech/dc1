@@ -7,7 +7,9 @@ const NinjasController = require('../controllers/ninjas_controller')
 // Take Express 'app' and associate routes
 module.exports = (app) => {
 
-    app.get('/api', NinjasController.greeting)
+    app.get('/api', NinjasController.api)
+
+    app.get('/api/osInfo', NinjasController.osInfo)
 
     app.get('/api/ninjas', NinjasController.index)
 

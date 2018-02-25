@@ -40,7 +40,7 @@ services:
   NinjaApp:
     image: markshaw/ninjaapp:1.0
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "8000:8000"
     networks:

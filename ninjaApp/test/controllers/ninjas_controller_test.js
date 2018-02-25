@@ -9,12 +9,13 @@ const mongoose = require('mongoose')
 const app = require('../../app')
 
 /**
- * Interesting - Not pulling in model via require ../../../models/ninja
- * Mongoose also gives access as shown below and this resolvesi ssues
+ * Interesting - Not pulling in model via require ../../../models/ninja.
+ * Mongoose also gives access as shown below and this resolves issues
  * with Express + Mocha + Mongoose (File gets required multiple times).
  * See 'require' comment in ninjas_contoller.js
  */
 const Ninja = mongoose.model('ninja')
+
 
 describe('Ninjas Controller', () => {
     it('handles a GET request to /api/ninjas - Return Ninjas in a location', (done) => {

@@ -7,14 +7,25 @@
   * MissingSchemaError: Schema hasn't been registered for model "ninja"
   * when running ninjas_controller_test.  Require here to resolve
   */
+
+const os = require('os')
+ 
 const Ninja = require('../models/ninja')
 
 module.exports = {
 
     // Legacy Format - greeting: function(req,res) {...}
 
-    greeting(req, res) {
-        res.send({ msg: 'Hello Ninjas!' })
+    api(req, res) {
+        res.send({ msg: 'Hello Ninjas! ... V1.1' })
+    },
+
+    osInfo(req, res) {
+        const frame1 = 'Hostname: ' + "'" + os.hostname() + "'" + ', '
+        const frame2 = 'Load_Avg: ' + "'" + os.loadavg() + "'" + ', '
+        const frame3 = 'Network_Interfaces: ' + JSON.stringify(os.networkInterfaces())
+        data = '{' + frame1 + frame2 + frame3 + '}'
+        res.send({ msg: data })
     },
 
     index(req, res, next) {

@@ -12,7 +12,16 @@ describe('The Ninja Express App', () => {
         request(app)
             .get('/api')
             .end((err, res) => {
-                assert(res.body.msg === 'Hello Ninjas!')
+                assert(res.body.msg.indexOf('Hello Ninjas!') !== -1)
+                done()
+            })
+    })
+
+    it('handles a GET request to /api/osInfo', (done) => {
+        request(app)
+            .get('/api/osInfo')
+            .end((err, res) => {
+                assert(res.body.msg.indexOf('Hostname:') !== -1)
                 done()
             })
     })
