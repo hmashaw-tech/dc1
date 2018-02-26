@@ -1,3 +1,6 @@
+---
+# Swarm Builder Ansible Playbook
+
 - name: Install Docker Prereqs
   hosts: swarm-managers:swarm-nodes
   become: yes
@@ -18,6 +21,7 @@
         repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
         state: present
  
+
 - name: Install Docker
   hosts: swarm-managers:swarm-nodes
   become: yes
@@ -31,6 +35,7 @@
         groups: docker
         append: yes
 
+
 - name: Initialize Swarm Master
   hosts: swarm-manager-01
   gather_facts: yes
@@ -41,6 +46,7 @@
       register: swarm_token
     - set_fact: swarmtoken="{{swarm_token.stdout}}"
 
+
 - name: Join Swarm Nodes
   hosts: swarm-nodes
   gather_facts: yes
@@ -50,4 +56,19 @@
         --token {{hostvars[groups['swarm-managers'][0]].swarmtoken}}
         --advertise-addr {{ansible_default_ipv4.address}}
         {{hostvars[groups['swarm-managers'][0]].ansible_default_ipv4.address}}:2377
+
+
+- name: Create DB Directory
+- hosts: swarm-manager-01
+  become: yes
+  tasks:
+    - file:
+        path: /data/dc1_db1
+        state: directory
+
+
+- name: clone DC1 repository
+    git: >
+      repo=https://github.com/hmashaw-tech/dc1.git
+      dest=/home/ubuntu
 
