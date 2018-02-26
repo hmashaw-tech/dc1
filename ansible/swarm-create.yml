@@ -68,6 +68,7 @@
 
 
 - name: Clone DC1 Repository
+- hosts: swarm-manager-01
   tasks:
   - git: >
       repo=https://github.com/hmashaw-tech/dc1.git
