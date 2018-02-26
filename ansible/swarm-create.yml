@@ -67,8 +67,9 @@
         state: directory
 
 
-- name: clone DC1 repository
-    git: >
+- name: Clone DC1 Repository
+  tasks:
+  - git: >
       repo=https://github.com/hmashaw-tech/dc1.git
       dest=/home/ubuntu
 
