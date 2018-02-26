@@ -72,5 +72,5 @@
   tasks:
   - git: >
       repo=https://github.com/hmashaw-tech/dc1.git
-      dest=/home/ubuntu
+      dest=/home/ubuntu/dc1
 
