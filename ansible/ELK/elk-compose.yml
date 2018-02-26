@@ -1,0 +1,19 @@
+version "3"
+
+services:
+  ElasticSearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
+    container_name: elasticsearch
+    deploy:
+      replicas: 1
+      resources:
+        reservations:
+          memory: 500m
+    ports:
+      - 9200:9200
+    networks:
+      - elk
+
+
+networks:
+  elk:

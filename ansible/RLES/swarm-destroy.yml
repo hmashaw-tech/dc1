@@ -4,3 +4,9 @@
   tasks:
     - command: "docker swarm leave --force"
 
+- name: Remove cloned DC1 directory
+  hosts: swarm-managers
+  file:
+    path: /data/dc1_db1
+    state: absent
+
