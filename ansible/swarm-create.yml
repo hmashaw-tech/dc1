@@ -46,8 +46,8 @@
   gather_facts: yes
   tasks:
   - command: > 
-    docker swarm join
-    --token {{hostvars[groups['swarm-masters'][0]].swarmtoken}}
-    --advertise-addr {{ansible_default_ipv4.address}}
-    {{hostvars[groups['swarm-masters'][0]].ansible_default_ipv4.address}}:2377
+        docker swarm join
+        --token {{hostvars[groups['swarm-managers'][0]].swarmtoken}}
+        --advertise-addr {{ansible_default_ipv4.address}}
+        {{hostvars[groups['swarm-managers'][0]].ansible_default_ipv4.address}}:2377
 
