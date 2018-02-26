@@ -1,3 +1,10 @@
+- name: Install Ansible Prereqs
+  hosts: swarm-managers:swarm-nodes
+  become: yes
+  gather_facts: no
+  tasks:
+    - raw: "apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y python-minimal python-pip"
+
 - name: Install Docker Prereqs
   hosts: swarm-managers:swarm-nodes
   become: yes
@@ -30,24 +37,4 @@
         name: "{{ ansible_user }}"
         groups: docker
         append: yes
-
-- name: Initialize Swarm Master
-  hosts: swarm-manager-01
-  gather_facts: yes
-  tasks:
-    - debug: var=ansible_default_ipv4.address
-    - command: "docker swarm init --advertise-addr {{ansible_default_ipv4.address}}"
-    - command: "docker swarm join-token -q worker"
-      register: swarm_token
-    - set_fact: swarmtoken="{{swarm_token.stdout}}"
-
-- name: Join Swarm Nodes
-  hosts: swarm-nodes
-  gather_facts: yes
-  tasks:
-  - command: > 
-    docker swarm join
-    --token {{hostvars[groups['swarm-masters'][0]].swarmtoken}}
-    --advertise-addr {{ansible_default_ipv4.address}}
-    {{hostvars[groups['swarm-masters'][0]].ansible_default_ipv4.address}}:2377
 
