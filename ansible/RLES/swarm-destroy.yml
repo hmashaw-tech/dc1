@@ -9,6 +9,6 @@
   gather_facts: yes
   tasks:
   - file:
-      path: /data/dc1_db1
+      path: /home/ubuntu/dc1
       state: absent
 
