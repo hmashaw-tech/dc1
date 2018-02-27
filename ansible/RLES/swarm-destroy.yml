@@ -8,7 +8,7 @@
   hosts: swarm-managers
   gather_facts: yes
   tasks:
-  - file:
-      path: /home/ubuntu/dc1
-      state: absent
+    - file:
+        path: /home/ubuntu/dc1
+        state: absent
 

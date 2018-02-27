@@ -51,11 +51,11 @@
   hosts: swarm-nodes
   gather_facts: yes
   tasks:
-  - command: > 
-        docker swarm join
-        --token {{hostvars[groups['swarm-managers'][0]].swarmtoken}}
-        --advertise-addr {{ansible_default_ipv4.address}}
-        {{hostvars[groups['swarm-managers'][0]].ansible_default_ipv4.address}}:2377
+    - command: > 
+          docker swarm join
+          --token {{hostvars[groups['swarm-managers'][0]].swarmtoken}}
+          --advertise-addr {{ansible_default_ipv4.address}}
+          {{hostvars[groups['swarm-managers'][0]].ansible_default_ipv4.address}}:2377
 
 
 - name: Create DB Directory
@@ -70,9 +70,9 @@
 - name: Clone DC1 Repository
   hosts: swarm-manager-01
   tasks:
-  - git: >
-      repo=https://github.com/hmashaw-tech/dc1.git
-      dest=/home/ubuntu/dc1
+    - git: >
+        repo=https://github.com/hmashaw-tech/dc1.git
+        dest=/home/ubuntu/dc1
 
 
 # Add or modify memlock, both soft and hard, limit for all users with a comment.
@@ -81,10 +81,10 @@
   become: yes
   gather_facts: yes
   tasks:
-  - pam_limits:
-      domain: '*'
-      limit_type: '-'
-      limit_item: memlock
-      value: unlimited
-      comment: unlimited memory lock for *
+    - pam_limits:
+        domain: '*'
+        limit_type: '-'
+        limit_item: memlock
+        value: unlimited
+        comment: unlimited memory lock for *
 
