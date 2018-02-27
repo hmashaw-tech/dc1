@@ -74,3 +74,12 @@
       repo=https://github.com/hmashaw-tech/dc1.git
       dest=/home/ubuntu/dc1
 
+
+# Add or modify memlock, both soft and hard, limit for all users with a comment.
+- pam_limits:
+    domain: *
+    limit_type: '-'
+    limit_item: memlock
+    value: unlimited
+    comment: unlimited memory lock for *
+
