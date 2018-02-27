@@ -77,7 +77,7 @@
 
 # Add or modify memlock, both soft and hard, limit for all users with a comment.
 - pam_limits:
-    domain: *
+    domain: '*'
     limit_type: '-'
     limit_item: memlock
     value: unlimited
