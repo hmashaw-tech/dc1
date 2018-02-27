@@ -9,6 +9,6 @@
   gather_facts: yes
   tasks:
   - file:
-    path: /data/dc1_db1
-    state: absent
+      path: /data/dc1_db1
+      state: absent
 
