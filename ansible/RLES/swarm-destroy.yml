@@ -8,7 +8,7 @@
   hosts: swarm-managers
   gather_facts: yes
   tasks:
-  file:
+  - file:
     path: /data/dc1_db1
     state: absent
 
