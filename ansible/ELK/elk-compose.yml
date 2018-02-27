@@ -3,12 +3,18 @@ version: "3"
 services:
   ElasticSearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.2.2
-    container_name: elasticsearch
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     deploy:
       replicas: 1
       resources:
-        reservations:
-          memory: 500m
+              limits:
+                memory: 1000M
     ports:
       - 9200:9200
     networks:
