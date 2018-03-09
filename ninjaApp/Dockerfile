@@ -21,4 +21,3 @@ EXPOSE 8000
 
 # Launch 'npm start' on running container
 CMD npm start
-
