@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "NODE_ENV=test MOCHA_FILE=./jenkins-test-results.xml nodemon --exec 'mocha --recursive -R mocha-junit-reporter'"
+    "test": "NODE_ENV=test MOCHA_FILE=./jenkins-test-results.xml nodemon --exec 'mocha --recursive -R mocha-junit-reporter'",
+    "test-git": "NODE_ENV=test MOCHA_FILE=./jenkins-test-results.xml mocha --recursive -R mocha-junit-reporter"
   },
   "author": "Mark",
   "license": "ISC",
