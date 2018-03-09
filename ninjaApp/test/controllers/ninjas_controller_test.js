@@ -43,7 +43,6 @@ describe('Ninjas Controller', () => {
 
 
     it('handles a POST request to /api/ninjas - Creates a new Ninja', (done) => {
-
         Ninja.count().then(count => {
             request(app)
                 .post('/api/ninjas')
@@ -55,7 +54,6 @@ describe('Ninjas Controller', () => {
                     })
                 })
         })
-
     })
 
 
@@ -93,4 +91,3 @@ describe('Ninjas Controller', () => {
         })
     })
 })
-
