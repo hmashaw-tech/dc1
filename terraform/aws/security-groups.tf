@@ -21,7 +21,7 @@ resource "aws_security_group" "dc1-docker" {
         from_port = 443
         to_port   = 443
         protocol  = "tcp"
-        cidr_blocks = ["${var.swarm_ingressIP}"]
+        cidr_blocks = ["${var.swarm_ingressIP}", "${var.gitIPs}"]
     }
 
     ingress {
