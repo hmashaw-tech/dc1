@@ -16,4 +16,4 @@ ansible-inventory
 #
 *.log
 *.retry
-
+jenkins-test-results.xml
